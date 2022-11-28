@@ -34,15 +34,15 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-
-      - name: Clone Github Repo Action
+      - name: Download File To Workspace
         # You may pin to the exact commit or the version.
-        # uses: GuillaumeFalourd/clone-github-repo-action@8e2d67e601742dcfd167324473bb9ae3f05d203e
-        uses: GuillaumeFalourd/clone-github-repo-action@v2
+        # uses: carlosperate/download-file-action@83d04ab2bc6f9ffa7b6f1ef21c83f630e75d6862
+        uses: carlosperate/download-file-action@v2.0.0
         with:
-          # Repository Owner
-          owner: wuwentao
-          # Repository name
-          repository: bj-unicom-iptv
-          # PAT with repository scope (https://github.com/settings/tokens)
-          # access-token: # optional
+          # URL of the file to download
+          file-url: https://raw.githubusercontent.com/wuwentao/bj-unicom-iptv/master/bj-unicom-iptv.m3u
+          # New filename to rename the downloaded file
+          file-name: origin.m3u
+          
+      - name: change file
+        run: cat origin.m3u

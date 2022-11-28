@@ -35,16 +35,14 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - name: Git Clone Action
+      - name: Clone Github Repo Action
         # You may pin to the exact commit or the version.
-        # uses: sudosubin/git-clone-action@8a93ce24d47782e30077508cccacf8a05a891bae
-        uses: sudosubin/git-clone-action@v1.0.1
+        # uses: GuillaumeFalourd/clone-github-repo-action@8e2d67e601742dcfd167324473bb9ae3f05d203e
+        uses: GuillaumeFalourd/clone-github-repo-action@v2
         with:
-          # Repository owner and name. Ex: sudosubin/git-clone-action
-          repository: # optional, default is ${{ github.repository }}
-          # Git host platform. Ex: github, gitlab, bitbucket, gitee, or else (git.suckless.org, ...)
-          platform: # optional, default is github
-          # Git branch or tag to checkout.
-          ref: # optional
-          # Relative path from current directory, where to clone.
-          path: # optional
+          # Repository Owner
+          owner: wuwentao
+          # Repository name
+          repository: bj-unicom-iptv
+          # PAT with repository scope (https://github.com/settings/tokens)
+          # access-token: # optional

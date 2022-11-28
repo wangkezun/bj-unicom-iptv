@@ -45,4 +45,21 @@ jobs:
           file-name: origin.m3u
           
       - name: change file
-        run: cat origin.m3u
+        run: sed 's/rtp:\/\//http:\/\/192.168.50.3:8012\/rtp\//' origin.m3u >> bj-unicom-iptv.m3u
+        
+      - name: delete origin file
+        run: rm origin.m3u
+      - name: Git Commit and Push
+        # You may pin to the exact commit or the version.
+        # uses: github-actions-x/commit@722d56b8968bf00ced78407bbe2ead81062d8baa
+        uses: github-actions-x/commit@v2.9
+        with:
+          # Github Token with commit access
+          github-token: ${{GITHUB_TOKEN}}
+          # Override branch to push to
+          push-branch: master
+          # Specify commit message
+          commit-message: auto update
+          email: admin@wkz.io
+          # Committer name. Default is name of the person or app that initiated the workflow.
+          name: wangkezun
